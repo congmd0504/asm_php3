@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +28,10 @@ Route::get('/contact', function () {
     return view('client.contact');
 })->name('client.contact');
 
+//Đăng ký đăng nhập
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 //Admin
 //Category
 Route::get('admin/categories/index', [CategoryController::class, 'index'])->name('categories.index');
@@ -45,6 +51,15 @@ Route::put('admin/products/edit/{id}', [ProductController::class, 'update'])->na
 Route::delete('admin/products/destroy/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
 Route::get('admin/products/show/{id}', [ProductController::class, 'show'])->name('products.show');
 
-Auth::routes();
+//User
+Route::get('admin/users/index', [UserController::class, 'index'])->name('users.index');
+Route::get('admin/users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('admin/users/create', [UserController::class, 'store'])->name('users.store');
+Route::get('admin/users/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
+Route::put('admin/users/edit/{id}', [UserController::class, 'update'])->name('users.update');
+Route::delete('admin/users/destroy/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Comment
+Route::post('comments/create', [CommentController::class, 'store'])->name('comments.store');
+Route::get('admin/comments/list', [CommentController::class, 'index'])->name('comments.index');
+Route::delete('admin/comments/destroy/{id}', [CommentController::class, 'destroy'])->name('comments.destroy');

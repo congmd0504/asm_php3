@@ -36,10 +36,10 @@
                                 <label for="name" class=" fw-bold">Tên sản phẩm:</label>
                                 <input type="text" name="name" class="form-control mt-2"
                                     placeholder="Nhập tên tên sản phẩm..">
-                                <label for="price" class=" fw-bold">Gía sản phẩm:</label>
+                                <label for="price" class=" fw-bold">Gía sản phẩm (vnđ) :</label>
                                 <input type="text" name="price" class="form-control mt-2"
                                     placeholder="Nhập giá sản phẩm..">
-                                <label for="weight" class=" fw-bold">Trọng lượng sản phẩm:</label>
+                                <label for="weight" class=" fw-bold">Trọng lượng sản phẩm (g):</label>
                                 <input type="text" name="weight" class="form-control mt-2"
                                     placeholder="Nhập trọng lượng sản phẩm..">
                                 <label for="quality" class=" fw-bold">Số lượng sản phẩm:</label>

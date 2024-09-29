@@ -45,9 +45,10 @@ class IndexController extends Controller
             ->where('products.id', $id)
             ->first();
         $listProduct = DB::table('products')->get();
-        $categories = DB::table('categories')->get();
-        // dd($product);
-        return view('client.product-detail', compact('product', 'listProduct', 'categories'));
+        $comments = DB::table('comments')->join('users', 'users.id', '=', 'comments.user_id')->where('comments.product_id', $id)
+            ->get();
+
+        return view('client.product-detail', compact('product', 'listProduct', 'comments'));
     }
     public function shop($id = null)
     {
@@ -62,9 +63,9 @@ class IndexController extends Controller
                 ->get();
         }
         $listProduct = DB::table('products')->get();
-        $categories = DB::table('categories')->get();
+
         // dd($products);
-        return view('client.shop', compact('products', 'categories', 'listProduct'));
+        return view('client.shop', compact('products', 'listProduct'));
     }
 
     /**

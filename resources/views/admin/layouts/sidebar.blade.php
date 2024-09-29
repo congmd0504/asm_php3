@@ -1,8 +1,8 @@
 <div class="sidebar-logo">
     <!-- Logo Header -->
     <div class="logo-header" data-background-color="dark">
-        <a href="index.html" class="logo">
-            <img src="assets/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" height="20" />
+        <a href="{{route('admin')}}" class="logo">
+            <img src="{{asset('assets/img/kaiadmin/logo_light.svg')}}" alt="navbar brand" class="navbar-brand" height="20" />
         </a>
         <div class="nav-toggle">
             <button class="btn btn-toggle toggle-sidebar">
@@ -50,7 +50,7 @@
             </li>
             <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#base2">
-                    <i class="fas fa-layer-group"></i>
+                    <i class="fa fa-folder"></i>
                     <p>Sản phẩm</p>
                     <span class="caret"></span>
                 </a>
@@ -68,7 +68,48 @@
                         </li>
                     </ul>
                 </div>
-                <a href="{{route('client.index')}}">
+
+            </li>
+            <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#base3">
+                    <i class="fa fa-handshake"></i>
+                    <p>Khách hàng</p>
+                    <span class="caret"></span>
+                </a>
+                <div class="collapse" id="base3">
+                    <ul class="nav nav-collapse">
+                        <li>
+                            <a href="{{ route('users.index') }}">
+                                <span class="sub-item">Danh sách khách hàng</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('users.create') }}">
+                                <span class="sub-item">Thêm mới khách hàng</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </li>
+            <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#base4">
+                    <i class="fa fa-comment"></i>
+                    <p>Bình luận</p>
+                    <span class="caret"></span>
+                </a>
+                <div class="collapse" id="base4">
+                    <ul class="nav nav-collapse">
+                        <li>
+                            <a href="{{ route('comments.index') }}">
+                                <span class="sub-item">Danh sách bình luận</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="mt-3" href="{{ route('client.index') }}">
                     <i class="fa fa-backward"></i>
                     <p>Trang khách hàng</p>
                 </a>

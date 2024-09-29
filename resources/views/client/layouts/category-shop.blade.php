@@ -63,7 +63,7 @@
 <div class="col-lg-12">
     <h4 class="mb-3">Featured products</h4>
     @foreach ($listProduct as $product)
-        <div class="d-flex align-items-center justify-content-start">
+        <a href="{{route('client.show',$product->id)}}" class="d-flex align-items-center justify-content-start">
             <div class="rounded me-4" style="width: 100px; height: 100px;">
                 <img src="{{ asset($product->image) }}" class="img-fluid rounded" alt="">
             </div>
@@ -80,7 +80,7 @@
                     <h5 class="fw-bold me-2">{{ $product->price }} vnđ</h5>
                 </div>
             </div>
-        </div>
+        </a>
     @endforeach
     <div class="d-flex justify-content-center my-4">
         <a href="{{ route('client.shop') }}"

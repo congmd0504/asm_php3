@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function ($view) {
             // Lấy dữ liệu từ database
             $categories = DB::table('categories')->get(); 
+            
             // Truyền dữ liệu vào view header
             $view->with(compact('categories'));
         });
